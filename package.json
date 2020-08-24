@@ -1,0 +1,53 @@
+{
+  "name": "piebola",
+  "version": "0.1.0",
+  "description": "Visiture frontend exercise.",
+  "scripts": {
+    "build": "rm -rf dist && npx webpack --config webpack.prod.js",
+    "clean": "rm -f npm-*.log && rm -f package-lock.json && rm -rf node_modules && npm cache verify",
+    "lint": "npx prettier-standard --lint",
+    "nuke": "npm run clean && npm install",
+    "start:dev": "npx netlify dev",
+    "start": "npx webpack-dev-server --config webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upgrade": "npx upgradeps -n"
+  },
+  "dependencies": {
+    "antd": "^4.6.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.2",
+    "html-webpack-plugin": "^4.3.0",
+    "netlify-cli": "^2.59.1",
+    "prettier-standard": "^16.4.1",
+    "source-map-loader": "^1.0.2",
+    "style-loader": "^1.2.1",
+    "upgradeps": "^1.4.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.2"
+  },
+  "author": "Luciano Ropero <lropero@gmail.com>",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
