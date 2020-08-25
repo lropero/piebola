@@ -1,0 +1,15 @@
+const cors = require('cors')
+const dotenv = require('dotenv')
+const express = require('express')
+const morgan = require('morgan')
+
+const routes = require('./routes')
+
+dotenv.config()
+const api = express()
+api.use(cors())
+api.use(morgan('dev'))
+api.use('/', routes)
+api.use((req, res) => res.sendStatus(404))
+api.listen(process.env.PORT)
+console.log(`Piebola API listening on port ${process.env.PORT}`)

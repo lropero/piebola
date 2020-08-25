@@ -1,0 +1,26 @@
+{
+  "name": "piebola-api",
+  "version": "0.1.0",
+  "description": "Visiture frontend exercise.",
+  "scripts": {
+    "clean": "rm -f npm-*.log && rm -f package-lock.json && rm -rf node_modules && npm cache verify",
+    "lint": "npx prettier-standard --lint",
+    "nuke": "npm run clean && npm install",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upgrade": "npx upgradeps -n"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "prettier-standard": "^16.4.1",
+    "upgradeps": "^1.4.1"
+  },
+  "author": "Luciano Ropero <lropero@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true
+}
