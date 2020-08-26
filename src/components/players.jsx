@@ -17,12 +17,12 @@ const Players = () => {
         Object.keys(filters).reduce(
           (filteredPlayers, input) => {
             switch (input) {
-              case 'name':
-                return filteredPlayers.filter(player => player.name.toLowerCase().includes(filters[input]))
-              case 'position':
-                return filteredPlayers.filter(player => player.position.toLowerCase() === filters[input])
               case 'age':
                 return filteredPlayers.filter(player => differenceInYears(new Date(), new Date(player.dateOfBirth)).toString() === filters[input])
+              case 'name':
+                return filteredPlayers.filter(player => player.name.toLowerCase().includes(filters[input].toLowerCase()))
+              case 'position':
+                return filteredPlayers.filter(player => player.position.toLowerCase() === filters[input].toLowerCase())
             }
           },
           [...players]

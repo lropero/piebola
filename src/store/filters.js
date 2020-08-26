@@ -11,10 +11,23 @@ const filtersSlice = createSlice({
     },
     updateFilters (state, action) {
       const { input, value } = action.payload
-      state[input] = (value || '')
-        .toString()
-        .trim()
-        .toLowerCase()
+      switch (input) {
+        case 'age': {
+          if (new RegExp('^[0-9]*$').test(value)) {
+            state[input] = value.toString()
+          }
+          break
+        }
+        case 'name': {
+          if (new RegExp('^[a-z\\s]*$', 'i').test(value)) {
+            state[input] = value
+          }
+          break
+        }
+        default: {
+          state[input] = value
+        }
+      }
     }
   }
 })
