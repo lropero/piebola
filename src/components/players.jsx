@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchPlayers } from 'piebola/store/players'
 import { Filters, Layout, List, Spinner } from 'piebola/components'
-import { updateFilters } from 'piebola/store/filters'
+import { resetFilters, updateFilters } from 'piebola/store/filters'
 
 const Players = () => {
+  const filtersStore = useSelector(state => state.filters)
   const playersStore = useSelector(state => state.players)
 
   const filteredPlayers = useSelector(
@@ -37,6 +38,10 @@ const Players = () => {
     dispatch(fetchPlayers())
   }, [])
 
+  const handleClearClick = () => {
+    dispatch(resetFilters())
+  }
+
   const handleFilterChange = (input, value) => {
     dispatch(updateFilters({ input, value }))
   }
@@ -45,7 +50,7 @@ const Players = () => {
     <Layout>
       {playersStore.length ? (
         <>
-          <Filters handleFilterChange={handleFilterChange} />
+          <Filters filters={filtersStore} handleClearClick={handleClearClick} handleFilterChange={handleFilterChange} />
           <List players={filteredPlayers} />
         </>
       ) : (
