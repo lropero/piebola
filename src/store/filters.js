@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {}
+const letters = new RegExp('^[a-z\\s]*$', 'i')
+const numbers = new RegExp('^[0-9]*$')
 
 const filtersSlice = createSlice({
   name: 'filters',
@@ -13,13 +15,13 @@ const filtersSlice = createSlice({
       const { input, value } = action.payload
       switch (input) {
         case 'age': {
-          if (new RegExp('^[0-9]*$').test(value)) {
+          if (numbers.test(value)) {
             state[input] = value.toString()
           }
           break
         }
         case 'name': {
-          if (new RegExp('^[a-z\\s]*$', 'i').test(value)) {
+          if (letters.test(value)) {
             state[input] = value
           }
           break
