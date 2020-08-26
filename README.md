@@ -2,7 +2,7 @@
 
 _And there goes the third one ⚪️🔴⚪️_
 
-<img src="https://github.com/lropero/piebola/blob/master/piebola.png?raw=true" width="600">
+<img src="https://github.com/lropero/piebola/blob/master/piebola.png?raw=true" style="border: 1px solid #999999" width="600">
 
 ### Requires
 
