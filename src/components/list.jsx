@@ -28,7 +28,16 @@ const columns = [
 ]
 
 const List = ({ players }) => {
-  return <Table columns={columns} dataSource={players} pagination={false} rowKey='name' scroll={{ y: window.innerHeight - (64 + 64 + 55) }} showSorterTooltip={false} />
+  return (
+    <Table
+      columns={columns}
+      dataSource={players}
+      pagination={false}
+      rowKey='name'
+      scroll={{ y: window.innerHeight - (64 + 64 + 55) }}
+      showSorterTooltip={false}
+    />
+  )
 }
 
 export default List
