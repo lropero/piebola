@@ -1,4 +1,0 @@
-[dev]
-  command = 'npm run start'
-  framework = '#custom'
-  targetPort = 3000

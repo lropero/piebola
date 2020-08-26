@@ -9,7 +9,7 @@ _And there goes the third one ⚪️🔴⚪️_
 ### Installation
 
 ```sh
-$ npm ci
+$ npm run install:all
 ```
 
 ### Usage

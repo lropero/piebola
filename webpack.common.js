@@ -1,4 +1,5 @@
 const CopyPlugin = require('copy-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 const path = require('path')
 
 const { name } = require('./package.json')
@@ -22,6 +23,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: '@svgr/webpack'
       }
     ]
   },
@@ -33,7 +38,8 @@ module.exports = {
           from: 'public/**/*'
         }
       ]
-    })
+    }),
+    new Dotenv()
   ],
   resolve: {
     alias: {
