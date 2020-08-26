@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { createSelector } from '@reduxjs/toolkit'
 import { differenceInYears } from 'date-fns'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { fetchPlayers } from 'piebola/store/players'
 import { Filter, Layout, List, Spinner } from 'piebola/components'
 import { updateFilters } from 'piebola/store/filters'
-import { updatePlayers } from 'piebola/store/players'
-import { useApi } from 'piebola/hooks'
 
 const Players = () => {
+  const playersStore = useSelector(state => state.players)
+
   const filteredPlayers = useSelector(
     createSelector(
       state => state.filters,
@@ -30,18 +31,10 @@ const Players = () => {
     )
   )
 
-  const api = useApi()
   const dispatch = useDispatch()
 
-  const [ready, setReady] = useState(false)
-
   useEffect(() => {
-    const fetch = async () => {
-      const players = await api.players()
-      dispatch(updatePlayers(players))
-      setReady(true)
-    }
-    fetch()
+    dispatch(fetchPlayers())
   }, [])
 
   const handleFilterChange = (input, value) => {
@@ -50,7 +43,7 @@ const Players = () => {
 
   return (
     <Layout>
-      {ready ? (
+      {playersStore.length ? (
         <>
           <Filter handleFilterChange={handleFilterChange} />
           <List players={filteredPlayers} />

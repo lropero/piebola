@@ -1,16 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
+const fetchPlayers = createAsyncThunk('players/fetch', async () => {
+  const response = await axios.get(`${process.env.API}/players`)
+  return response.data
+})
 
 const playersSlice = createSlice({
   name: 'players',
   initialState: [],
-  reducers: {
-    updatePlayers (state, action) {
+  extraReducers: {
+    [fetchPlayers.fulfilled]: (state, action) => {
       const players = action.payload
       return players
     }
   }
 })
 
-export const { updatePlayers } = playersSlice.actions
+export { fetchPlayers }
 
 export default playersSlice.reducer

@@ -12,8 +12,14 @@ _And there goes the third one ⚪️🔴⚪️_
 $ npm run install:all
 ```
 
-### Usage
+### Run development
 
 ```sh
 $ npm run start
+```
+
+### Build for production
+
+```sh
+$ npm run build
 ```
