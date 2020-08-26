@@ -4,7 +4,7 @@ import { differenceInYears } from 'date-fns'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchPlayers } from 'piebola/store/players'
-import { Filter, Layout, List, Spinner } from 'piebola/components'
+import { Filters, Layout, List, Spinner } from 'piebola/components'
 import { updateFilters } from 'piebola/store/filters'
 
 const Players = () => {
@@ -45,7 +45,7 @@ const Players = () => {
     <Layout>
       {playersStore.length ? (
         <>
-          <Filter handleFilterChange={handleFilterChange} />
+          <Filters handleFilterChange={handleFilterChange} />
           <List players={filteredPlayers} />
         </>
       ) : (

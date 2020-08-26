@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
 `
 
-const Filter = ({ handleFilterChange }) => {
+const Filters = ({ handleFilterChange }) => {
   const filtersStore = useSelector(state => state.filters)
 
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const Filter = ({ handleFilterChange }) => {
   return (
     <Wrapper>
       <Space align='center'>
-        <Input onChange={event => handleFilterChange('name', event.target.value)} placeholder='Player Name' style={{ width: 280 }} value={filtersStore.name} />
+        <Input onChange={event => handleFilterChange('name', event.target.value)} placeholder='Player' style={{ width: 280 }} value={filtersStore.name} />
         <Select onChange={value => handleFilterChange('position', value)} placeholder='Position' style={{ width: 200 }} value={filtersStore.position}>
           <Select.Option value='Attacking Midfield'>Attacking Midfield</Select.Option>
           <Select.Option value='Central Midfield'>Central Midfield</Select.Option>
@@ -46,4 +46,4 @@ const Filter = ({ handleFilterChange }) => {
   )
 }
 
-export default Filter
+export default Filters
